@@ -35,6 +35,7 @@ RSpec.describe Api::ListsController, type: :controller do
 			newPermissions = "open"
 			#my_list.permissions = newPermissions
 			put :update, user_id: my_user.id, id: my_list.id, list: {permissions: newPermissions}
+			my_list.reload
 			expect(my_list.permissions).to eq newPermissions
 		end
 	end

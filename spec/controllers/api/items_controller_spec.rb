@@ -35,6 +35,7 @@ RSpec.describe Api::ItemsController, type: :controller do
 			newIteminfo = "Jig List"
 			newCompletion = "true"
 			put :update, list_id: my_list.id, id: my_item.id, item: {complete: newCompletion}
+			my_item.reload
 			expect(my_item.complete).to eq newCompletion
 		end
 	end
